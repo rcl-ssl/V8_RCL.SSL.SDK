@@ -11,16 +11,9 @@
     <Description>A C# .NET SDK to programatically create and renew certificates using the RCL SSL API.</Description>
     <PackageProjectUrl>https://github.com/rcl-ssl/V8_RCL.SSL.SDK</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rcl-ssl/V8_RCL.SSL.SDK</RepositoryUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile></PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Options" />

@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace RCL.SSL.SDK
 {
-    public static class RCLAPIExtension
+    public static class RCLSSLAPIExtension
     {
-        public static IServiceCollection AddRCLAPIService(this IServiceCollection services,
+        public static IServiceCollection AddRCLSSLAPIService(this IServiceCollection services,
             Action<ApiOptions> configureOptions)
         {
             services.TryAddTransient<ICertificateService, CertificateService>();

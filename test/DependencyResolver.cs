@@ -18,8 +18,8 @@ namespace RCL.SSL.SDK
                 ConfigurationBuilder builder = new ConfigurationBuilder();
                 builder.AddUserSecrets<TestProject>();
                 IConfiguration configuration = builder.Build();
-                services.AddRCLAPIService(options => configuration.Bind("API", options));
-                services.AddRCLAzureAccessTokenService(options => configuration.Bind("MicrosoftEntraApp", options));
+                services.AddRCLSSLAPIService(options => configuration.Bind("RCLSSLAPI", options));
+                services.AddRCLSSLAzureAccessTokenService(options => configuration.Bind("MicrosoftEntraApp", options));
                 services.Configure<Certificate>(options => configuration.Bind("Certificate",options));
 
                 serviceProvider = services.BuildServiceProvider();

@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace RCL.SSL.SDK
 {
-    public static class RCLAzureAccessTokenExtension
+    public static class RCLSSLAzureAccessTokenExtension
     {
-        public static IServiceCollection AddRCLAzureAccessTokenService(this IServiceCollection services,
+        public static IServiceCollection AddRCLSSLAzureAccessTokenService(this IServiceCollection services,
             Action<MicrosoftEntraAppOptions> configureOptions)
         {
             services.TryAddTransient<IAzureAccessTokenService, AzureAccessTokenService>();
