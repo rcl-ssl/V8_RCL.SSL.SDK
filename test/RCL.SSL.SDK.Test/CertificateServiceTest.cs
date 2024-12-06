@@ -136,6 +136,81 @@ namespace RCL.SSL.SDK.Test
         }
 
         [TestMethod]
+        public async Task ScheduleCertificateCreateAzureKeyVaultDNSTest()
+        {
+            try
+            {
+                _certificateTest.target = RCLSSLAPIConstants.targetAzureKeyVaultDNS;
+                _certificateTest.challengeType = RCLSSLAPIConstants.dnsChallenge;
+                _certificateTest.isSAN = false;
+                //  _certificateTest.isSAN = true;
+                _certificateTest.azureSubscriptionId = _certificateRequestOptons.Value.azureSubscriptionId;
+                _certificateTest.dnsZoneResourceGroup = _certificateRequestOptons.Value.dnsZoneResourceGroup;
+                _certificateTest.keyVaultName = _certificateRequestOptons.Value.keyVaultName;
+                _certificateTest.accessToken = await GetAzureAccessTokenAsync(RCLSSLAPIConstants.azureResource);
+                _certificateTest.accessTokenKeyVault = await GetAzureAccessTokenAsync(RCLSSLAPIConstants.keyVaultResource);
+
+                await _certificateService.CertificateScheduleCreateAsync(_certificateTest);
+
+                Assert.AreEqual(1, 1);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public async Task ScheduleCertificateCreateAzureAppServiceTest()
+        {
+            try
+            {
+                _certificateTest.target = RCLSSLAPIConstants.targetAzureAppService;
+                _certificateTest.challengeType = RCLSSLAPIConstants.httpChallenge;
+                // _certificateTest.challengeType = RCLSSLAPIConstants.dnsChallenge;
+                _certificateTest.isSAN = false;
+                //  _certificateTest.isSAN = true;
+                _certificateTest.azureSubscriptionId = _certificateRequestOptons.Value.azureSubscriptionId;
+                //_certificateTest.dnsZoneResourceGroup = _certificateRequestOptons.Value.dnsZoneResourceGroup;
+                _certificateTest.accessToken = await GetAzureAccessTokenAsync(RCLSSLAPIConstants.azureResource);
+                _certificateTest.azureAppServicePlanResourceGroup = _certificateRequestOptons.Value.azureAppServicePlanResourceGroup;
+                _certificateTest.azureAppServicePlanName = _certificateRequestOptons.Value.azureAppServicePlanName;
+                _certificateTest.azureAppServiceResourceGroup = _certificateRequestOptons.Value.azureAppServiceResourceGroup;
+                _certificateTest.azureAppServiceName = _certificateRequestOptons.Value.azureAppServiceName;
+
+                await _certificateService.CertificateScheduleCreateAsync(_certificateTest);
+
+                Assert.AreEqual(1, 1);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
+        public async Task ScheduleRenewCertificateTest()
+        {
+            try
+            {
+                _certificateTest.accessToken = await GetAzureAccessTokenAsync(RCLSSLAPIConstants.azureResource);
+              //  _certificateTest.accessTokenKeyVault = await GetAzureAccessTokenAsync(RCLSSLAPIConstants.keyVaultResource);
+
+                await _certificateService
+                    .CertificateScheduleRenewAsync(_certificateTest);
+
+                Assert.AreEqual(1, 1);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                Assert.Fail();
+            }
+        }
+
+        [TestMethod]
         public async Task DeleteCertificateTest()
         {
             try

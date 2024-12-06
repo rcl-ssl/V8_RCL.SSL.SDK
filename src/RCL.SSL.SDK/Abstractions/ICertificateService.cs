@@ -4,7 +4,8 @@
     {
         Task<Certificate> CertificateGetAsync(string certificatename);
         Task<Certificate> CertificateCreateOrderAsync(Certificate certificate);
-        Task CertificateDeleteAsync(string certificatename);
         Task CertificateScheduleCreateAsync(Certificate certificate);
+        Task CertificateScheduleRenewAsync(Certificate certificate);
+        Task CertificateDeleteAsync(string certificatename);
     }
 }

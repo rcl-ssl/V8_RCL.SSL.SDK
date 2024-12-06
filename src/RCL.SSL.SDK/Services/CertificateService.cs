@@ -58,6 +58,19 @@ namespace RCL.SSL.SDK
             }
         }
 
+        public async Task CertificateScheduleRenewAsync(Certificate certificate)
+        {
+            try
+            {
+                SetClientHeaders(_apiOptions.Value.ApiKey, _apiOptions.Value.Source);
+                await PostAsync<Certificate>($"{_apiOptions.Value.ApiBaseUrl}/ssl/certificate/subscription/{_apiOptions.Value.Subscription}/schedule/renew", certificate);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task CertificateDeleteAsync(string certificatename)
         {
             try
