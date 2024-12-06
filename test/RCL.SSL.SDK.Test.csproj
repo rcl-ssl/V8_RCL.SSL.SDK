@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\RCL.SSL.SDK\RCL.SSL.SDK.csproj" />
+    <ProjectReference Include="..\src\RCL.SSL.SDK.csproj" />
   </ItemGroup>
 
   <ItemGroup>
