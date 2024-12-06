@@ -2,7 +2,6 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 
 namespace RCL.SSL.SDK
 {
@@ -19,7 +18,8 @@ namespace RCL.SSL.SDK
                 ConfigurationBuilder builder = new ConfigurationBuilder();
                 builder.AddUserSecrets<TestProject>();
                 IConfiguration configuration = builder.Build();
-                services.AddRCLSSLSDK(options => configuration.Bind("API", options));
+                services.AddRCLAPIService(options => configuration.Bind("API", options));
+                services.AddRCLAzureAccessTokenService(options => configuration.Bind("MicrosoftEntraApp", options));
                 services.Configure<Certificate>(options => configuration.Bind("Certificate",options));
 
                 serviceProvider = services.BuildServiceProvider();
