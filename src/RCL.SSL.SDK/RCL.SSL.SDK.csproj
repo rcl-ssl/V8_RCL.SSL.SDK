@@ -4,6 +4,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>RCL.SSL.SDK</Title>
+    <Version>8.0.0-alpha</Version>
+    <Authors>Ray Consulting Limited</Authors>
+    <Product>RCL.SSL.SDK</Product>
+    <Description>A C# .NET SDK to programatically create and renew certificates using the RCL SSL API.</Description>
+    <PackageProjectUrl>https://github.com/rcl-ssl/V8_RCL.SSL.SDK</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rcl-ssl/V8_RCL.SSL.SDK</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
