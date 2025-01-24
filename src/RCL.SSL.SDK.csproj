@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>RCL.SSL.SDK</Title>
-    <Version>8.0.0</Version>
+    <Version>8.0.1</Version>
     <Authors>Ray Consulting Limited</Authors>
     <Product>RCL.SSL.SDK</Product>
     <Description>A C# .NET SDK to programatically create and renew SSL/TLS certificates using the RCL SSL API.</Description>
