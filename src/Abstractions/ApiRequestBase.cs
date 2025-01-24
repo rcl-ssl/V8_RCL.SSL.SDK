@@ -12,6 +12,7 @@ namespace RCL.SSL.SDK
         static ApiRequestBase()
         {
             _client = new HttpClient();
+            _client.Timeout = TimeSpan.FromMinutes(10);
         }
 
         public void SetClientHeaders(string apiKey, string source = "")
